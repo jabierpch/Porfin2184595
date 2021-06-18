@@ -116,5 +116,17 @@ namespace Porfin2184595.Controllers
 
         }
 
+        public ActionResult Delete(int id)
+        {
+            using (var db = new inventario2021Entities())
+            {
+                var usuario = db.usuario.Find(id);
+                db.usuario.Remove(usuario);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+        }
+
     }
 }
