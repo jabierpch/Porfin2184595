@@ -1,0 +1,41 @@
+﻿@model Porfin2184595.Models.cliente
+
+@{ ViewBag.Title = "Details";
+                var nombreCliente = Model.nombre; }
+
+<h2>Cliente</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.documento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.documento)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar el usuario " + nombreCliente, "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Regresar a la lista", "Index")
+</p>
