@@ -1,0 +1,49 @@
+﻿@model Porfin2184595.Models.compra
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Compra</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Fecha
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+        <dt>
+            Total
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.total)
+        </dd>
+
+        <dt>
+            Usuario
+        </dt>
+
+        <dd>
+            @WebApplication1.Controllers.CompraController.NombreUsuario(Model.id_usuario)
+
+        <dt>
+            Cliente
+        </dt>
+
+        <dd>
+            @WebApplication1.Controllers.CompraController.NombreCliente(Model.id_cliente)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Regresar ala lista ", "Index")
+</p>

@@ -1,0 +1,35 @@
+﻿@model Porfin2184595.Models.producto_compra
+
+<h4>Producto Compra</h4>
+<hr />
+<dl class="dl-horizontal">
+    <dt>
+        Compra
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.id_compra)
+    </dd>
+
+    <dt>
+        Producto
+    </dt>
+
+    <dd>
+        @Porfin2184595.Controllers.ProductoCompraController.Nombreproducto(Model.id_producto)
+    </dd>
+
+    <dt>
+        Cantidad
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.cantidad)
+    </dd>
+
+</dl>
+
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Regrasar a la lista", "Index")
+</p>

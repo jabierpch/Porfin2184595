@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Porfin2184595.Models.producto_compra>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Compra</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo producto", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Compra
+        </th>
+        <th>
+            Producto
+        </th>
+        <th>
+            Cantidad
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_compra)
+            </td>
+            <td>
+                @Porfin2184595.Controllers.ProductoCompraController.Nombreproducto(item.id_producto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cantidad)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Ver", "Details", new { id = item.id }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.id }, new { @class = "linkDelete" })
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+@section scripts{
+    <script>
+        $(".linkDelete").click(function (event) {
+            if (!confirm('¿ Esta seguro de eliminar ?')) {
+                event.preventDefault();
+            }
+        })
+    </script>
+}
