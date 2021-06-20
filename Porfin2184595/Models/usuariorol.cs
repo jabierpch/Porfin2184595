@@ -11,13 +11,13 @@ namespace Porfin2184595.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class usuariorol
     {
         public int id { get; set; }
         public int idUsuario { get; set; }
         public int idRol { get; set; }
-    
         public virtual roles roles { get; set; }
         public virtual usuario usuario { get; set; }
     }
