@@ -313,7 +313,6 @@
     <Content Include="Views\Compra\Details.cshtml" />
     <Content Include="Views\Compra\Edit.cshtml" />
     <Content Include="Views\Compra\Index.cshtml" />
-    <Content Include="Views\Compra\ListaClientes.cshtml" />
     <Content Include="Views\Producto\Reporte.cshtml" />
     <Content Include="Views\ProductoCompra\Create.cshtml" />
     <Content Include="Views\ProductoCompra\Details.cshtml" />
@@ -326,6 +325,7 @@
     <Content Include="Views\ProductoImagen\Edit.cshtml" />
     <Content Include="Views\ProductoImagen\Index.cshtml" />
     <Content Include="Views\ProductoImagen\ListarProducto.cshtml" />
+    <Content Include="Views\Compra\ListarClientes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

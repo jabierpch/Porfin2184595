@@ -6,7 +6,7 @@ using System.Text;
 using System.Web.Mvc;
 using Porfin2184595.Models;
 
-namespace WebApplication1.Controllers
+namespace Porfin2184595.Controllers
 {
     public class CompraController : Controller
     {
