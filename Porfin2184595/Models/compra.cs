@@ -11,21 +11,25 @@ namespace Porfin2184595.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class compra
     {
+        internal string nombre;
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public compra()
         {
             this.producto_compra = new HashSet<producto_compra>();
         }
-    
+
         public int id { get; set; }
         public System.DateTime fecha { get; set; }
         public int total { get; set; }
         public int id_usuario { get; set; }
+        [Required(ErrorMessage = "el nombre no pede estar vacio")]
         public int id_cliente { get; set; }
-    
+        [Required(ErrorMessage = "el nombre no pede estar vacio")]
         public virtual cliente cliente { get; set; }
         public virtual usuario usuario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

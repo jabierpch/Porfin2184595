@@ -11,14 +11,16 @@ namespace Porfin2184595.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class producto_compra
     {
         public int id { get; set; }
         public int id_compra { get; set; }
+        [Required(ErrorMessage = "el nombre no pede estar vacio")]
         public int id_producto { get; set; }
+        [Required(ErrorMessage = "el valor no puede estar vacio")]
         public int cantidad { get; set; }
-    
         public virtual compra compra { get; set; }
         public virtual producto producto { get; set; }
     }
