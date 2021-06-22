@@ -1,0 +1,8 @@
+﻿@model Porfin2184595.Models.usuariorol
+
+<select class="form-control" id="id_roles" name="id_roles">
+    @foreach (var item in Model)
+    {
+        <option value="@item.id">@item.descripcion</option>
+    }
+</select>

@@ -326,10 +326,16 @@
     <Content Include="Views\Compra\Index.cshtml" />
     <Content Include="Views\Compra\ListarClientes.cshtml" />
     <Content Include="Views\Compra\ListarUsuarios.cshtml" />
+    <Content Include="Views\Usuario\ListarUsuario.cshtml" />
+    <Content Include="Views\UsuarioRol\Create.cshtml" />
+    <Content Include="Views\UsuarioRol\Details.cshtml" />
+    <Content Include="Views\UsuarioRol\Edit.cshtml" />
+    <Content Include="Views\UsuarioRol\Index.cshtml" />
+    <Content Include="Views\UsuarioRol\ListarNombrerol.cshtml" />
+    <Content Include="Views\UsuarioRol\ListarNombreusuario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\UsuarioRol\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

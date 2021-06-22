@@ -17,22 +17,30 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Nombre de la aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("aplica", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Sobre Mi", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Cliente", "Index", "Cliente")</li>
-                    <li>@Html.ActionLink("Usuario", "Index", "Usuario")</li>
-                    <li>@Html.ActionLink("Producto", "index", "Producto")</li>
-                    <li>@Html.ActionLink("Roles", "Index", "Roles")</li>
-                    <li>@Html.ActionLink("Compra", "index", "Compra")</li>
-                    <li>@Html.ActionLink("Usuariorol", "index", "Usuariorol")</li>
-                    <li>@Html.ActionLink("Productoimagen", "Index", "Productoimagen")</li>
-                    <li>@Html.ActionLink("Producto Compra", "Index", "ProductoCompra")</li>
+                    <li>@Html.ActionLink("iniciar sesion", "Login", "Usuario")</li>
+                    
+                    @if (User.Identity.IsAuthenticated)
+                    {
 
+
+
+                        <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Sobre Mi", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Cliente", "Index", "Cliente")</li>
+                        <li>@Html.ActionLink("Usuario", "Index", "Usuario")</li>
+                        <li>@Html.ActionLink("Producto", "index", "Producto")</li>
+                        <li>@Html.ActionLink("Roles", "Index", "Roles")</li>
+                        <li>@Html.ActionLink("Compra", "index", "Compra")</li>
+                        <li>@Html.ActionLink("Usuariorol", "index", "Usuariorol")</li>
+                        <li>@Html.ActionLink("Productoimagen", "Index", "Productoimagen")</li>
+                        <li>@Html.ActionLink("Producto Compra", "Index", "ProductoCompra")</li>
+                        <li>@Html.ActionLink("Salir", "CloseSession", "Usuario")</li>
+                    }
                 </ul>
             </div>
         </div>

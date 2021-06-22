@@ -8,7 +8,7 @@ using Porfin2184595.Models;
 
 namespace Porfin2184595.Controllers
 {
-    public class clienteController : Controller
+    public class ClienteController : Controller
     {
         // GET: cliente
         public ActionResult Index()

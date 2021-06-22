@@ -5,13 +5,15 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using Porfin2184595.Models;
+using System.Web.Security;
 
 namespace Porfin2184595.Controllers
 {
     public class UsuarioController : Controller
     {
+        [Authorize]
         // GET: Usuario
-        public ActionResult Index()
+                public ActionResult Index()
         {
             using (var db = new inventario2021Entities())
             {
@@ -128,5 +130,38 @@ namespace Porfin2184595.Controllers
 
         }
 
+        public ActionResult Login(string message = "")
+        {
+            ViewBag.Message = message;
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public ActionResult Login(string email, string password)
+        {
+            string passEncrip = UsuarioController.HashSHA1(password);
+            using (var db = new inventario2021Entities())
+            {
+                var userLogin = db.usuario.FirstOrDefault(e => e.email == email && e.password == passEncrip);
+                if (userLogin != null)
+                {
+                    FormsAuthentication.SetAuthCookie(userLogin.email, true);
+                    Session["User"] = userLogin;
+                    return RedirectToAction("index");
+                }
+                else
+                {
+                    return Login("Verifique sus datos");
+                }
+            }
+        }
+
+        [Authorize]
+        public ActionResult CloseSession()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("index", "Home");
+        }
     }
 }

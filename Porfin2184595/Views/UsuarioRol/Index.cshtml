@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Porfin2184595.Models.usuariorol>
+
+@{
+    ViewBag.Title = "index";
+}
+<h2> Roles</h2>
+<p>
+    @Html.ActionLink("Nuevo usuario rol", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Usuario
+        </th>
+        <th>
+            Rol
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Porfin2184595.Controllers.UsuarioRolController.Nombreusuario(item.idUsuario)
+            </td>
+            <td>
+                @Porfin2184595.Controllers.UsuarioRolController.Nombrerol(item.idRol)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Ver", "Details", new { id = item.id }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.id }, new { @class = "linkDelete" })
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+@section scripts{
+    <script>
+        $(".linkDelete").click(function (event) {
+            if (!confirm('¿ Esta seguro de eliminar ?')) {
+                event.preventDefault();
+            }
+        })
+    </script>
+}

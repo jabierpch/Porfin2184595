@@ -1,0 +1,27 @@
+﻿@model Porfin2184595.Models.usuariorol
+<div>
+    <h4>usuariorol</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Usuario
+        </dt>
+
+        <dd>
+            @Porfin2184595.Controllers.UsuarioRolController.Nombreusuario(Model.id)
+        </dd>
+
+        <dt>
+            Rol
+        </dt>
+
+        <dd>
+            @Porfin2184595.Controllers.UsuarioRolController.Nombrerol(Model.id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Regresar a la lista ", "Index")
+</p>
