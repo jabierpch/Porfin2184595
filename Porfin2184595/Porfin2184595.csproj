@@ -333,6 +333,7 @@
     <Content Include="Views\UsuarioRol\Index.cshtml" />
     <Content Include="Views\UsuarioRol\ListarNombrerol.cshtml" />
     <Content Include="Views\UsuarioRol\ListarNombreusuario.cshtml" />
+    <Content Include="Views\Usuario\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

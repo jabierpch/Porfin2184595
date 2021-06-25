@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
@@ -17,23 +17,21 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("aplica", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("INVE", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+
                     <li>@Html.ActionLink("iniciar sesion", "Login", "Usuario")</li>
-                    
+
+
+
                     @if (User.Identity.IsAuthenticated)
                     {
-
-
-
-                        <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Sobre Mi", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
-                        <li>@Html.ActionLink("Cliente", "Index", "Cliente")</li>
-                        <li>@Html.ActionLink("Usuario", "Index", "Usuario")</li>
+                        <li>@Html.ActionLink("Usuario", "index", "Usuario")</li>
+                        <li>@Html.ActionLink("Proveedor", "Index", "Proveedor")</li>
                         <li>@Html.ActionLink("Producto", "index", "Producto")</li>
+                        <li>@Html.ActionLink("Clientes", "index", "Clientes")</li>
                         <li>@Html.ActionLink("Roles", "Index", "Roles")</li>
                         <li>@Html.ActionLink("Compra", "index", "Compra")</li>
                         <li>@Html.ActionLink("Usuariorol", "index", "Usuariorol")</li>
@@ -41,6 +39,7 @@
                         <li>@Html.ActionLink("Producto Compra", "Index", "ProductoCompra")</li>
                         <li>@Html.ActionLink("Salir", "CloseSession", "Usuario")</li>
                     }
+
                 </ul>
             </div>
         </div>
