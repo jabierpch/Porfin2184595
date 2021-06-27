@@ -16,7 +16,6 @@ namespace Porfin2184595.Controllers
                 return View(db.usuariorol.ToList());
             }
         }
-
         public static string Nombreusuario(int idusuario)
         {
             using (var db = new inventario2021Entities())
@@ -24,7 +23,6 @@ namespace Porfin2184595.Controllers
                 return db.usuario.Find(idusuario).nombre;
             }
         }
-
         public ActionResult ListarNombreusuario()
         {
             using (var db = new inventario2021Entities())
@@ -32,8 +30,6 @@ namespace Porfin2184595.Controllers
                 return PartialView(db.usuario.ToList());
             }
         }
-
-
         public static string Nombrerol(int idrol)
         {
             using (var db = new inventario2021Entities())
@@ -55,14 +51,12 @@ namespace Porfin2184595.Controllers
 
         }
 
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(usuariorol newUsuariorol)
         {
             if (!ModelState.IsValid)
                 return View();
-
             try
             {
                 using (var db = new inventario2021Entities())
@@ -78,7 +72,6 @@ namespace Porfin2184595.Controllers
                 return View();
             }
         }
-
         public ActionResult Details(int id)
         {
             using (var db = new inventario2021Entities())
@@ -87,7 +80,6 @@ namespace Porfin2184595.Controllers
                 return View(productoDetalle);
             }
         }
-
         public ActionResult Delete(int id)
         {
             using (var db = new inventario2021Entities())
@@ -98,7 +90,6 @@ namespace Porfin2184595.Controllers
                 return RedirectToAction("Index");
             }
         }
-
         public ActionResult Edit(int id)
         {
             try
@@ -120,7 +111,6 @@ namespace Porfin2184595.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(usuariorol usuariorolEdit)
         {
-
             try
             {
                 using (var db = new inventario2021Entities())

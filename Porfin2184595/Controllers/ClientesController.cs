@@ -1,14 +1,16 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.IO;
 using System.Web.Mvc;
 using Porfin2184595.Models;
-using System.Web;
+using System.Text;
+using Rotativa;
 
 namespace Porfin2184595.Controllers
 {
-    public class ProveedorController : Controller
+    public class ClientesController : Controller
     {
         // GET: Proveedor
         public ActionResult Index()
@@ -16,26 +18,18 @@ namespace Porfin2184595.Controllers
             using (var db = new inventario2021Entities())
             {
 
-                return View(db.proveedor.ToList());
-            }
-        }
-
-        public static string NombreProveedor(int idProveedor)
-        {
-            using (var db = new inventario2021Entities())
-            {
-                return db.proveedor.Find(idProveedor).nombre;
+                return View(db.cliente.ToList());
             }
         }
         public ActionResult Create()
-
         {
             return View();
+
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(proveedor proveedor)
+        public ActionResult Create(cliente cliente)
         {
             if (!ModelState.IsValid)
                 return View();
@@ -43,7 +37,7 @@ namespace Porfin2184595.Controllers
             {
                 using (var db = new inventario2021Entities())
                 {
-                    db.proveedor.Add(proveedor);
+                    db.cliente.Add(cliente);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
@@ -54,14 +48,26 @@ namespace Porfin2184595.Controllers
                 return View();
             }
         }
+        public static string HashSHA1(string value)
+        {
+            var sha1 = System.Security.Cryptography.SHA1.Create();
+            var inputBytes = Encoding.ASCII.GetBytes(value);
+            var hash = sha1.ComputeHash(inputBytes);
+
+            var sb = new StringBuilder();
+            for (var i = 0; i < hash.Length; i++)
+            {
+                sb.Append(hash[i].ToString("X2"));
+            }
+            return sb.ToString();
+        }
         public ActionResult Edit(int id)
         {
-
             try
             {
                 using (var db = new inventario2021Entities())
                 {
-                    proveedor findUser = db.proveedor.Where(a => a.id == id).FirstOrDefault();
+                    cliente findUser = db.cliente.Where(a => a.id == id).FirstOrDefault();
                     return View(findUser);
                 }
             }
@@ -74,8 +80,7 @@ namespace Porfin2184595.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(proveedor proveedorEdit)
-
+        public ActionResult Edit(cliente clienteEdit)
         {
             if (!ModelState.IsValid)
                 return View();
@@ -83,17 +88,15 @@ namespace Porfin2184595.Controllers
             {
                 using (var db = new inventario2021Entities())
                 {
-                    proveedor user = db.proveedor.Find(proveedorEdit.id);
-                    user.nombre = proveedorEdit.nombre;
-                    user.direccion = proveedorEdit.direccion;
-                    user.telefono = proveedorEdit.telefono;
-                    user.nombre_contacto = proveedorEdit.nombre_contacto;
+                    cliente user = db.cliente.Find(clienteEdit.id);
+                    user.nombre = clienteEdit.nombre;
+                    user.documento = clienteEdit.documento;
+                    user.email = clienteEdit.email;
                     db.SaveChanges();
                     return RedirectToAction("index");
                 }
             }
             catch (Exception ex)
-
             {
                 ModelState.AddModelError("", "error " + ex);
                 return View();
@@ -103,7 +106,7 @@ namespace Porfin2184595.Controllers
         {
             using (var db = new inventario2021Entities())
             {
-                proveedor user = db.proveedor.Find(id);
+                cliente user = db.cliente.Find(id);
                 return View(user);
             }
         }
@@ -111,20 +114,18 @@ namespace Porfin2184595.Controllers
         {
             using (inventario2021Entities db = new inventario2021Entities())
             {
-                var Usuario = db.proveedor.Find(id);
-                db.proveedor.Remove(Usuario);
+                var Usuario = db.cliente.Find(id);
+                db.cliente.Remove(Usuario);
                 db.SaveChanges();
                 return RedirectToAction("index");
             }
         }
-        public ActionResult nuevavistaCSV()
+        public ActionResult nuevasCVS()
         {
             return View();
         }
-
-
         [HttpPost]
-        public ActionResult nuevavistaCSV(HttpPostedFileBase fileForm)
+        public ActionResult nuevasCSV(HttpPostedFileBase fileForm)
         {
             //string para guardar la ruta
             string filePath = string.Empty;
@@ -155,17 +156,16 @@ namespace Porfin2184595.Controllers
                 {
                     if (!string.IsNullOrEmpty(row))
                     {
-                        var newProveedor = new proveedor
+                        var newcliente = new cliente
                         {
                             nombre = row.Split(';')[0],
-                            direccion = row.Split(';')[1],
-                            telefono = row.Split(';')[2],
-                            nombre_contacto = row.Split(';')[3],
+                            documento = row.Split(';')[1],
+                            email = row.Split(';')[2],
                         };
 
                         using (var db = new inventario2021Entities())
                         {
-                            db.proveedor.Add(newProveedor);
+                            db.cliente.Add(newcliente);
                             db.SaveChanges();
                         }
                     }
@@ -174,6 +174,33 @@ namespace Porfin2184595.Controllers
 
             return View();
         }
-
+        public ActionResult Reporte1()
+        {
+            try
+            {
+                var db = new inventario2021Entities();
+                var query = from tabcliente in db.cliente
+                            join tabproducto in db.producto on tabcliente.id equals tabproducto.id
+                            select new Reporte1
+                            {
+                                nombreproducto = tabproducto.nombre,
+                                descripcionproducto = tabproducto.descripcion,
+                                cantidadproducto = tabproducto.cantidad,
+                                nombrecliente = tabcliente.nombre,
+                                emailcliente = tabcliente.email,
+                                documentocliente = tabcliente.documento
+                            };
+                return View(query);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "error " + ex);
+                return View();
+            }
+        }
+        public ActionResult ImprimirReporte1()
+        {
+            return new ActionAsPdf("Reporte1") { FileName = "reporte.pdf" };
+        }
     }
 }

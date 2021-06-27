@@ -18,8 +18,6 @@ namespace Porfin2184595.Controllers
                 return View(db.producto_compra.ToList());
             }
         }
-
-
         public static string Nombreproducto(int idproducto)
         {
             using (var db = new inventario2021Entities())
@@ -27,7 +25,6 @@ namespace Porfin2184595.Controllers
                 return db.producto.Find(idproducto).nombre;
             }
         }
-
         public ActionResult ListarProducto()
         {
             using (var db = new inventario2021Entities())
@@ -42,7 +39,6 @@ namespace Porfin2184595.Controllers
                 return db.compra.Find(idcompra).nombre;
             }
         }
-
         public ActionResult Listaridcompra()
         {
             using (var db = new inventario2021Entities())
@@ -61,7 +57,6 @@ namespace Porfin2184595.Controllers
         {
             if (!ModelState.IsValid)
                 return View();
-
             try
             {
                 using (var db = new inventario2021Entities())
@@ -98,7 +93,6 @@ namespace Porfin2184595.Controllers
                 return View(producto_compraDetalle);
             }
         }
-
         public ActionResult Delete(int id)
         {
             using (var db = new inventario2021Entities())
@@ -109,7 +103,6 @@ namespace Porfin2184595.Controllers
                 return RedirectToAction("Index");
             }
         }
-
         public ActionResult Edit(int id)
         {
             try
@@ -141,8 +134,6 @@ namespace Porfin2184595.Controllers
                 {
                     var producto_compra = db.producto_compra.Find(producto_compraEdit.id);
                     producto_compra.cantidad = producto_compraEdit.cantidad;
-
-
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }

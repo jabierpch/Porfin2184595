@@ -15,7 +15,6 @@ namespace Porfin2184595.Controllers
         {
             using (var db = new inventario2021Entities())
             {
-
                 return View(db.compra.ToList());
             }
         }
@@ -48,10 +47,8 @@ namespace Porfin2184595.Controllers
             }
         }
         public ActionResult Create()
-
         {
             return View();
-
         }
 
         [HttpPost]
@@ -80,7 +77,6 @@ namespace Porfin2184595.Controllers
             var sha1 = System.Security.Cryptography.SHA1.Create();
             var inputBytes = Encoding.ASCII.GetBytes(value);
             var hash = sha1.ComputeHash(inputBytes);
-
             var sb = new StringBuilder();
             for (var i = 0; i < hash.Length; i++)
             {
@@ -91,7 +87,6 @@ namespace Porfin2184595.Controllers
 
         public ActionResult Edit(int id)
         {
-
             try
             {
                 using (var db = new inventario2021Entities())
@@ -119,22 +114,16 @@ namespace Porfin2184595.Controllers
                     compra user = db.compra.Find(compraEdit.id);
                     user.fecha = compraEdit.fecha;
                     user.total = compraEdit.total;
-
-
-
                     db.SaveChanges();
                     return RedirectToAction("index");
                 }
             }
             catch (Exception ex)
-
             {
                 ModelState.AddModelError("", "error " + ex);
                 return View();
             }
         }
-
-
         public ActionResult Details(int id)
         {
             using (var db = new inventario2021Entities())

@@ -2,57 +2,59 @@
 
 @{
     ViewBag.Title = "Details";
+    var nombreUsuario = Model.nombre;
 }
 
-<h2>Details</h2>
+<h2>Detalles del Usuario: @nombreUsuario</h2>
 
 <div>
     <h4>usuario</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.nombre)
-        </dt>
 
+        <dt>
+            Nombre
+        </dt>
         <dd>
             @Html.DisplayFor(model => model.nombre)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.apellido)
+            Apellido
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.apellido)
         </dd>
 
+        <dd>
         <dt>
-            @Html.DisplayNameFor(model => model.fecha_nacimiento)
+            Fecha Nacimiento
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.fecha_nacimiento)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.password)
+            Contraseña
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.password)
         </dd>
 
+        <dt>
+            Correo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar el usuario " + nombreUsuario
+   , "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Regresar ala lista ", "Index")
 </p>

@@ -12,19 +12,19 @@ namespace Porfin2184595.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+
     public partial class inventario2021Entities : DbContext
     {
         public inventario2021Entities()
             : base("name=inventario2021Entities")
         {
         }
-    
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-    
+
         public virtual DbSet<cliente> cliente { get; set; }
         public virtual DbSet<compra> compra { get; set; }
         public virtual DbSet<producto> producto { get; set; }

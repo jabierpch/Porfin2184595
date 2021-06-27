@@ -1,16 +1,18 @@
 ﻿@model Porfin2184595.Models.producto
 
-@{ ViewBag.Title = "Details";
-                var nombreproveedor = Model.nombre; }
+@{
+    ViewBag.Title = "Details";
+    var nombreproveedor = Model.nombre;
+}
 
-<h2>Details</h2>
+<h2>Producto</h2>
 
 <div>
-    <h4>producto</h4>
+
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.nombre)
+            Nombre
         </dt>
 
         <dd>
@@ -18,7 +20,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.percio_unitario)
+            Precio unitario
         </dt>
 
         <dd>
@@ -26,7 +28,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.descripcion)
+            Descripcion
         </dt>
 
         <dd>
@@ -34,7 +36,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.cantidad)
+            Cantidad
         </dt>
 
         <dd>
@@ -48,14 +50,9 @@
             @Porfin2184595.Controllers.ProductoController.NombreProveedor(Model.id_proveedor)
         </dd>
 
-    </dl>
 
-    @using (Html.BeginForm())
-    {
-@Html.AntiForgeryToken()
-
-                <div class="form-actions no-color">
-                    <input type="submit" value="Delete" class="btn btn-default" /> |
-                    @Html.ActionLink("Back to List", "Index")
-                </div>}
 </div>
+<p>
+    @Html.ActionLink("Editar provedo" + nombreproveedor, "Index")
+    @Html.ActionLink("Regresar ala lista ", "Index")
+</p>

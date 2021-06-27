@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,6 @@ namespace Porfin2184595.Controllers
     public class UsuarioController : Controller
     {
         [Authorize]
-
 
         // GET: Usuario
         public ActionResult Index()
@@ -27,10 +27,8 @@ namespace Porfin2184595.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-
         public ActionResult Create(usuario usuario)
         {
-
             if (!ModelState.IsValid)
 
                 return View();
@@ -55,7 +53,6 @@ namespace Porfin2184595.Controllers
             var sha1 = System.Security.Cryptography.SHA1.Create();
             var inputBytes = Encoding.ASCII.GetBytes(value);
             var hash = sha1.ComputeHash(inputBytes);
-
             var sb = new StringBuilder();
             for (var i = 0; i < hash.Length; i++)
             {
@@ -63,10 +60,8 @@ namespace Porfin2184595.Controllers
             }
             return sb.ToString();
         }
-
         public ActionResult Edit(int id)
         {
-
             try
             {
                 using (var db = new inventario2021Entities())
@@ -88,7 +83,6 @@ namespace Porfin2184595.Controllers
         {
             if (!ModelState.IsValid)
                 return View();
-
             try
             {
                 using (var db = new inventario2021Entities())
@@ -111,7 +105,6 @@ namespace Porfin2184595.Controllers
                 return View();
             }
         }
-
         public ActionResult Details(int id)
         {
             using (var db = new inventario2021Entities())
@@ -120,7 +113,6 @@ namespace Porfin2184595.Controllers
                 return View(user);
             }
         }
-
         public ActionResult Delete(int id)
         {
             using (inventario2021Entities db = new inventario2021Entities())
@@ -139,7 +131,6 @@ namespace Porfin2184595.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-
         public ActionResult Login(string email, string password)
         {
             string passEncrip = UsuarioController.HashSHA1(password);

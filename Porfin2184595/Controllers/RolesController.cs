@@ -4,16 +4,14 @@ using System.Web.Mvc;
 using Porfin2184595.Models;
 
 namespace Porfin2184595.Controllers
-
 {
-    public class rolesController : Controller
+    public class RolesController : Controller
     {
         // GET: Proveedor
         public ActionResult Index()
         {
             using (var db = new inventario2021Entities())
             {
-
                 return View(db.roles.ToList());
             }
         }
@@ -24,7 +22,6 @@ namespace Porfin2184595.Controllers
                 return db.proveedor.Find(idusuario).nombre;
             }
         }
-
         public ActionResult Listarroles()
         {
             using (var db = new inventario2021Entities())
@@ -32,12 +29,10 @@ namespace Porfin2184595.Controllers
                 return PartialView(db.roles.ToList());
             }
         }
-
         public ActionResult Create()
 
         {
             return View();
-
         }
 
         [HttpPost]
@@ -63,7 +58,6 @@ namespace Porfin2184595.Controllers
         }
         public ActionResult Edit(int id)
         {
-
             try
             {
                 using (var db = new inventario2021Entities())
@@ -83,27 +77,24 @@ namespace Porfin2184595.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(proveedor rolesEdit)
         {
+            if (!ModelState.IsValid)
+                return View();
             try
             {
                 using (var db = new inventario2021Entities())
                 {
                     proveedor user = db.proveedor.Find(rolesEdit.id);
                     user.nombre = rolesEdit.nombre;
-
-
                     db.SaveChanges();
                     return RedirectToAction("index");
                 }
             }
             catch (Exception ex)
-
             {
                 ModelState.AddModelError("", "error " + ex);
                 return View();
             }
         }
-
-
         public ActionResult Details(int id)
         {
             using (var db = new inventario2021Entities())
