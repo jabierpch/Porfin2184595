@@ -30,7 +30,6 @@ namespace Porfin2184595.Controllers
         public ActionResult Create(usuario usuario)
         {
             if (!ModelState.IsValid)
-
                 return View();
             try
             {

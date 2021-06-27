@@ -25,6 +25,7 @@ namespace Porfin2184595.Models
 
         public int id { get; set; }
         [Required(ErrorMessage = "El nombre no puede ser vacio")]
+        [StringLength(20, ErrorMessage = "Supero el limite de 20 caracteres")]
         public string nombre { get; set; }
         public string apellido { get; set; }
         public System.DateTime fecha_nacimiento { get; set; }
