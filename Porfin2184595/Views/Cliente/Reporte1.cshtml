@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Porfin2184595.Models.Reporte1>
+@{
+    ViewBag.Title = "Reporte1";
+}
+
+<h2>Reporte1</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Descripcion
+        </th>
+        <th>
+            Cantidad
+        </th>
+        <th>
+            Nombrecliente
+        </th>
+        <th>
+            Correocliente
+        </th>
+        <th>
+            Documentocliente
+        </th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.nombreproducto)</td>
+            <td>@Html.DisplayFor(modelItem => item.descripcionproducto)</td>
+            <td>@Html.DisplayFor(modelItem => item.cantidadproducto)</td>
+            <td>@Html.DisplayFor(modelItem => item.nombrecliente)</td>
+            <td>@Html.DisplayFor(modelItem => item.emailcliente)</td>
+            <td>@Html.DisplayFor(modelItem => item.documentocliente)</td>
+        </tr>
+    }
+</table>
+@Html.ActionLink("Generar Reporte", "ImprimirReporte", "Producto");
