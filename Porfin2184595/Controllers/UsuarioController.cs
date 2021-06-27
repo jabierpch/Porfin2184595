@@ -126,8 +126,8 @@ namespace Porfin2184595.Controllers
         }
         public ActionResult Login(string message = "")
         {
-            ViewBag.Message = message;
-            return View();
+          ViewBag.Message = message;
+          return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]

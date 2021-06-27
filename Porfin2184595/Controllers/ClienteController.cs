@@ -10,7 +10,7 @@ using Rotativa;
 
 namespace Porfin2184595.Controllers
 {
-    public class ClientesController : Controller
+    public class ClienteController : Controller
     {
         // GET: Proveedor
         public ActionResult Index()

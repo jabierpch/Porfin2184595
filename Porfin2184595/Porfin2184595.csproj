@@ -179,7 +179,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\ClientesController.cs" />
+    <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\CompraController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductoCompraController.cs" />
@@ -344,6 +344,9 @@
     <Content Include="Views\UsuarioRol\ListarNombrerol.cshtml" />
     <Content Include="Views\UsuarioRol\ListarNombreusuario.cshtml" />
     <Content Include="Views\Cliente\Reporte1.cshtml" />
+    <Content Include="Views\Cliente\nuevasCSV.cshtml" />
+    <Content Include="Views\Proveedor\nuevavistaCSV.cshtml" />
+    <Content Include="Views\Usuario\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

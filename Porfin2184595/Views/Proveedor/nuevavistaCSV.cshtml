@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "nuevavistaCSV";
+}
+
+<h2>nuevavistaCSV</h2>
+
+@using (Html.BeginForm("nuevavistaCSV", "Proveedor", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="fileForm" />
+    <input type="submit" name="" value="Enviar" />
+}
