@@ -5,9 +5,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap" rel="stylesheet">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-</head>
+    <link rel="stylesheet" href="~/Content/custom.css">
+</head> 
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -22,7 +26,56 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
 
+                    <li>@Html.ActionLink("iniciar sesion", "Login", "Usuario")</li>
+
+                    <li class="dropdown">
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Crud Usuario <span class="caret"></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Registrar</a></li>
+                            <li><a href="#">Consultar</a></li>
+                            <li><a href="#">Eliminar</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Carpetas <span class="caret"></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Cliente</a></li>
+                            <li><a href="#">Compra</a></li>
+                            <li><a href="#">Usuario</a></li>
+                            <li><a href="#">UsuarioRol</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Producto <span class="caret"></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">ProductoCompra</a></li>
+                            <li><a href="#">ProductoImagen</a></li>
+                            <li><a href="#">Proveedor</a></li>
+                            <li><a href="#">Roles</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Salir <span class="caret"></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Cerrar</a></li>
+                        </ul>
+                    </li>
+
+
                     @if (User.Identity.IsAuthenticated)
+
+
                     {
                         <li>@Html.ActionLink("Usuario", "index", "Usuario")</li>
                         <li>@Html.ActionLink("Proveedor", "Index", "Proveedor")</li>

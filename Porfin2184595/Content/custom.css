@@ -1,0 +1,26 @@
+﻿body {
+    font-family: 'Dosis', sans-serif;
+}
+/*aplicando estilos por medio de las clases*/
+.tituloHome {
+}
+
+.navbar-inverse {
+    background-color: forestgreen;
+}
+
+    .navbar-inverse .navbar-brand {
+        color: #000000;
+    }
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: #000000;
+    }
+
+.lead {
+    color: lightskyblue;
+}
+
+.lead {
+    font-family: 'Sitka Text';
+}
